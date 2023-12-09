@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-info
+  labels:
+    app: podinfo
+spec:
+  selector:
+    matchLabels:
+      app: pod-info
+  template:
+    metadata:
+      labels:
+        app: pod-info
+    spec:
+      containers:
+      - name: pod-info-container
+        image: stefanprodan/podinfo
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9898
+
